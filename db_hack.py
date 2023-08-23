@@ -13,15 +13,9 @@ CHASTIMENTS = [
 
 
 def check_schoolkid(full_name):
-    try:
-        schoolkid = get_object_or_404(
-            Schoolkid, full_name__contains=full_name)
-        return schoolkid
-    except ObjectDoesNotExist:
-        print('No student has been found with that name')
-    except MultipleObjectsReturned:
-        print('A lot of students have been found with this name,'
-              'please, be more precise')
+    schoolkid = get_object_or_404(
+        Schoolkid, full_name__contains=full_name)
+    return schoolkid
 
 
 def remove_chastisements(schoolkid):
