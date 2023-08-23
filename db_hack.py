@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 from datacenter.models import (Chastisement, Commendation, Lesson, Mark,
                                Schoolkid)
 
-CHASTIMENTS = [
+COMMENDATIONS = [
     'Молодец!', 'Отлично!', 'Хорошо!', 'Гораздо лучше, чем я ожидал!',
     'Ты меня приятно удивил!'
 ]
@@ -41,7 +41,7 @@ def create_commendation(full_name, subject):
               "in {year_of_study}{group_letter}")
         return None
     new_commendation = Commendation.objects.create(
-        text=random.choice(CHASTIMENTS),
+        text=random.choice(COMMENDATIONS),
         created=lesson.date,
         schoolkid=schoolkid,
         subject=lesson.subject,
